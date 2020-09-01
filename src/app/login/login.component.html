@@ -1,17 +1,21 @@
-<div class="container outer shadow p-3 mb-5 rounded">
-    <h3>{{ header | uppercase}}</h3>
-    <hr>
+
+<div class="container outer shadow p-3 mb-0 rounded">
+  <h3>{{ header | uppercase}}</h3>
+  <hr>
   <form [formGroup]="authForm">
       <div class="form-group col-sm-12">
         <label for="email">Email:</label>
         <input id="email" class="form-control" formControlName="email" placeholder="Email" type="email" required>
-        <!-- <div *ngIf="email.errors"> 
+        <div class="varify"  *ngIf="!authForm.controls.email.valid && !authForm.controls.email.pristine"> 
             Must be a valid email address
-        </div> -->
+        </div>
       </div>
       <div class="form-group col-sm-12">
         <label for="password">Password:</label>
         <input id="password" class="form-control" formControlName="password" placeholder="Password" type="password" required>
+        <div class="varify" *ngIf="!authForm.controls.password.valid && !authForm.controls.password.pristine"> 
+          Password must include one uppercase letter
+       </div>
       </div>
       <div class="form-group col-sm-12">
         <button class="btn btn-primary" (click)="onSubmit()" type="submit" [disabled]="!authForm.valid">Sign In</button>

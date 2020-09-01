@@ -1,0 +1,14 @@
+
+
+<h5>Please enter product details </h5>
+<hr>
+<div class="dialog">
+    <input type="text" [(ngModel)]="data.name" placeholder="Product Name">
+    <input  type="text" [(ngModel)]="data.rate" placeholder="Product Rate">
+    <input  type="text" [(ngModel)]="data.quality" placeholder="Product Quality">
+</div>
+<div class="footer">
+  <hr>
+  <button class="btn btn-danger btn-sm" (click)="onNoClick()">{{'cancel' | uppercase}}</button>
+  <button class="btn btn-primary btn-sm" (click)="onAdd()">{{'add' | uppercase}}</button>
+</div>
